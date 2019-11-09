@@ -145,3 +145,20 @@ Hash password with `node-red-admin hash-pw`.
 
 Restart the service with `sudo service nodered start`.
 
+### Setup git
+
+Copy the public key found in .ssh/authorized_keys to github.
+
+TODO: (Hmm. There is something strange here...  Done above, I think)
+
+```
+cd
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+eval "$(ssh-agent -s)"
+```
+
+Then pull this repo to the pi-users home directory.
+
+
+
