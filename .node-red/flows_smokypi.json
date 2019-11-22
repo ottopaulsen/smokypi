@@ -1,1 +1,1102 @@
-[{"id":"18187ffc.6b48f","type":"tab","label":"Smoky","disabled":false,"info":""},{"id":"7b47ed6d.c31284","type":"mqtt-broker","z":"","name":"Smoky","broker":"10.0.0.15","port":"1883","clientid":"","usetls":false,"compatmode":false,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"56c641d8.f1904","type":"ui_tab","z":"","name":"Smoky","icon":"dashboard","disabled":false,"hidden":false},{"id":"30d7abf.2215b54","type":"ui_group","z":"","name":"Inside","tab":"56c641d8.f1904","order":2,"disp":true,"width":"6","collapse":false},{"id":"4611e53.768ad1c","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"e7632049.38b88","type":"ui_group","z":"","name":"Outside","tab":"56c641d8.f1904","order":3,"disp":true,"width":"6","collapse":false},{"id":"6b14fbb3.07a0b4","type":"ui_group","z":"","name":"Settings","tab":"56c641d8.f1904","order":4,"disp":true,"width":"6","collapse":false},{"id":"78852bd7.a57494","type":"ui_group","z":"","name":"Historikk","tab":"56c641d8.f1904","order":1,"disp":true,"width":"6","collapse":false},{"id":"cb6ee6bd.b164e8","type":"mqtt in","z":"18187ffc.6b48f","name":"Test","topic":"smoky/1/#","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":90,"y":40,"wires":[["25cfb2d5.38dade"]]},{"id":"25cfb2d5.38dade","type":"debug","z":"18187ffc.6b48f","name":"","active":false,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":350,"y":40,"wires":[]},{"id":"82b80da7.dec89","type":"mqtt in","z":"18187ffc.6b48f","name":"Inside temp","topic":"smoky/1/inside/temperature","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":110,"y":120,"wires":[["f06e04ce.790578","4915e30b.a3162c","79446cfd.d12db4"]]},{"id":"f06e04ce.790578","type":"ui_gauge","z":"18187ffc.6b48f","name":"Inside temoerature","group":"30d7abf.2215b54","order":1,"width":0,"height":0,"gtype":"gage","title":"Temperatur","label":"°C","format":"{{value}}","min":"-20","max":"70","colors":["#050db5","#06a101","#ca3838"],"seg1":"0","seg2":"15","x":330,"y":120,"wires":[]},{"id":"910f763.bfc5388","type":"mqtt in","z":"18187ffc.6b48f","name":"Inside humidity","topic":"smoky/1/inside/humidity","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":120,"y":180,"wires":[["3d6dba65.a70426","a9b7913f.217f9"]]},{"id":"3d6dba65.a70426","type":"ui_gauge","z":"18187ffc.6b48f","name":"Inside Humidity","group":"30d7abf.2215b54","order":2,"width":0,"height":0,"gtype":"gage","title":"Luftfuktighet","label":"%","format":"{{value}}","min":"0","max":"100","colors":["#b50200","#06a101","#0d14ca"],"seg1":"70","seg2":"95","x":340,"y":180,"wires":[]},{"id":"c645a377.9807b","type":"mqtt in","z":"18187ffc.6b48f","name":"Inside smoke","topic":"smoky/1/inside/smoke","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":110,"y":240,"wires":[["5416051a.a36a4c","8ef2569a.851458"]]},{"id":"5416051a.a36a4c","type":"ui_gauge","z":"18187ffc.6b48f","name":"Inside smoke","group":"30d7abf.2215b54","order":3,"width":0,"height":0,"gtype":"gage","title":"Røyk","label":"","format":"{{value}}","min":"0","max":"600","colors":["#cdb704","#06a101","#b50200"],"seg1":"60","seg2":"250","x":350,"y":240,"wires":[]},{"id":"eb185141.0d27c","type":"mqtt in","z":"18187ffc.6b48f","name":"Outside temp","topic":"smoky/1/outside/temperature","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":110,"y":300,"wires":[["f76ff216.6bd08"]]},{"id":"f76ff216.6bd08","type":"ui_gauge","z":"18187ffc.6b48f","name":"Outside temperature","group":"e7632049.38b88","order":0,"width":0,"height":0,"gtype":"gage","title":"Temperatur","label":"°C","format":"{{value}}","min":"-20","max":"30","colors":["#050db5","#06a101","#ca3838"],"seg1":"0","seg2":"20","x":340,"y":300,"wires":[]},{"id":"9d208703.113418","type":"mqtt in","z":"18187ffc.6b48f","name":"Outside humidity","topic":"smoky/1/outside/humidity","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":120,"y":360,"wires":[["a21f1f90.fe9fe"]]},{"id":"a21f1f90.fe9fe","type":"ui_gauge","z":"18187ffc.6b48f","name":"Outside humidity","group":"e7632049.38b88","order":0,"width":0,"height":0,"gtype":"gage","title":"Luftfuktighet","label":"%","format":"{{value}}","min":"0","max":"100","colors":["#cdb704","#06a101","#0d14ca"],"seg1":"30","seg2":"80","x":330,"y":360,"wires":[]},{"id":"9d142961.766fe8","type":"ui_text","z":"18187ffc.6b48f","group":"6b14fbb3.07a0b4","order":1,"width":0,"height":0,"name":"Temp setting","label":"Temp setting","format":"{{msg.payload}}","layout":"row-spread","x":370,"y":500,"wires":[]},{"id":"c09843e7.c7aea","type":"mqtt in","z":"18187ffc.6b48f","name":"Temp setting","topic":"smoky/1/settings/temp","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":110,"y":500,"wires":[["9d142961.766fe8"]]},{"id":"97882377.e20a4","type":"ui_button","z":"18187ffc.6b48f","name":"Read settings","group":"6b14fbb3.07a0b4","order":5,"width":0,"height":0,"passthru":false,"label":"Read","tooltip":"Send message to read settings","color":"","bgcolor":"","icon":"","payload":"...","payloadType":"str","topic":"smoky/1/in/read","x":600,"y":500,"wires":[["73c2194c.896b68","9d142961.766fe8","65abff36.f4021","33d316c8.76a06a","412080df.27aa7"]]},{"id":"73c2194c.896b68","type":"mqtt out","z":"18187ffc.6b48f","name":"Send","topic":"","qos":"2","retain":"true","broker":"7b47ed6d.c31284","x":810,"y":500,"wires":[]},{"id":"65abff36.f4021","type":"ui_text","z":"18187ffc.6b48f","group":"6b14fbb3.07a0b4","order":2,"width":0,"height":0,"name":"Temp Kp","label":"Kp setting","format":"{{msg.payload}}","layout":"row-spread","x":360,"y":560,"wires":[]},{"id":"9e7bd418.fcaa78","type":"mqtt in","z":"18187ffc.6b48f","name":"Kp setting","topic":"smoky/1/settings/kp","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":100,"y":560,"wires":[["65abff36.f4021"]]},{"id":"33d316c8.76a06a","type":"ui_text","z":"18187ffc.6b48f","group":"6b14fbb3.07a0b4","order":3,"width":0,"height":0,"name":"Ki setting","label":"Ki setting","format":"{{msg.payload}}","layout":"row-spread","x":360,"y":600,"wires":[]},{"id":"c23fb4a9.113388","type":"mqtt in","z":"18187ffc.6b48f","name":"Ki setting","topic":"smoky/1/settings/ki","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":100,"y":600,"wires":[["33d316c8.76a06a"]]},{"id":"412080df.27aa7","type":"ui_text","z":"18187ffc.6b48f","group":"6b14fbb3.07a0b4","order":4,"width":0,"height":0,"name":"Kd setting","label":"Kd setting","format":"{{msg.payload}}","layout":"row-spread","x":370,"y":640,"wires":[]},{"id":"630fa59c.a55c2c","type":"mqtt in","z":"18187ffc.6b48f","name":"Kd setting","topic":"smoky/1/settings/kd","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":100,"y":640,"wires":[["412080df.27aa7"]]},{"id":"ed5ffd5c.f3ace","type":"ui_text_input","z":"18187ffc.6b48f","name":"Set temp","label":"Set temp","tooltip":"Enter new temperature","group":"6b14fbb3.07a0b4","order":6,"width":0,"height":0,"passthru":true,"mode":"number","delay":300,"topic":"smoky/1/in/temp","x":580,"y":600,"wires":[["73c2194c.896b68"]]},{"id":"f1d28d5d.9e6dd","type":"ui_text_input","z":"18187ffc.6b48f","name":"Set kp","label":"Set Kp","tooltip":"Enter PID kp value","group":"6b14fbb3.07a0b4","order":7,"width":0,"height":0,"passthru":true,"mode":"number","delay":300,"topic":"smoky/1/in/kp","x":570,"y":640,"wires":[["73c2194c.896b68"]]},{"id":"e2d3c662.09d608","type":"ui_text_input","z":"18187ffc.6b48f","name":"Set ki","label":"Set Ki","tooltip":"Enter PID ki value","group":"6b14fbb3.07a0b4","order":8,"width":0,"height":0,"passthru":true,"mode":"number","delay":300,"topic":"smoky/1/in/ki","x":570,"y":680,"wires":[["73c2194c.896b68"]]},{"id":"3f80fdc5.291c32","type":"ui_text_input","z":"18187ffc.6b48f","name":"Set kd","label":"Set Kd","tooltip":"Enter PID kd value","group":"6b14fbb3.07a0b4","order":9,"width":0,"height":0,"passthru":true,"mode":"number","delay":300,"topic":"smoky/1/in/kd","x":570,"y":720,"wires":[["73c2194c.896b68"]]},{"id":"7aeedf33.81741","type":"ui_gauge","z":"18187ffc.6b48f","name":"Heater","group":"e7632049.38b88","order":0,"width":0,"height":0,"gtype":"gage","title":"Heater","label":"%","format":"{{value}}","min":"0","max":"100","colors":["#06a101","#cdb704","#b50200"],"seg1":"25","seg2":"75","x":330,"y":420,"wires":[]},{"id":"b164f294.0d0d5","type":"mqtt in","z":"18187ffc.6b48f","name":"Heater","topic":"smoky/1/inside/heateroutput","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":90,"y":420,"wires":[["7aeedf33.81741"]]},{"id":"8ef2569a.851458","type":"ui_chart","z":"18187ffc.6b48f","name":"Inside smoke graph","group":"78852bd7.a57494","order":3,"width":0,"height":0,"label":"Røyk","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"No data","dot":false,"ymin":"0","ymax":"400","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"outputs":1,"x":580,"y":240,"wires":[[]]},{"id":"4915e30b.a3162c","type":"ui_chart","z":"18187ffc.6b48f","name":"Inside temp graph","group":"78852bd7.a57494","order":1,"width":0,"height":0,"label":"Temperatur","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"No data","dot":false,"ymin":"-5","ymax":"10","removeOlder":"1","removeOlderPoints":"","removeOlderUnit":"86400","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"outputs":1,"x":570,"y":120,"wires":[[]]},{"id":"a9b7913f.217f9","type":"ui_chart","z":"18187ffc.6b48f","name":"Inside humidity graph","group":"78852bd7.a57494","order":2,"width":0,"height":0,"label":"Luftfuktighet","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"No data","dot":false,"ymin":"0","ymax":"100","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"outputs":1,"x":580,"y":180,"wires":[[]]},{"id":"190c7d50.4766e3","type":"inject","z":"18187ffc.6b48f","name":"Delay counter","topic":"","payload":"1","payloadType":"num","repeat":"1","crontab":"","once":true,"onceDelay":"1","x":580,"y":60,"wires":[["79446cfd.d12db4"]]},{"id":"79446cfd.d12db4","type":"function","z":"18187ffc.6b48f","name":"Timer","func":"var timer = 0;\nif (msg.topic != 'smoky/1/inside/temperature') {\n    timer = context.get('smokyTimer') || 0;\n    timer += 1;\n}\ncontext.set('smokyTimer', timer);\nmsg.payload = timer;\nreturn msg;","outputs":1,"noerr":0,"x":770,"y":120,"wires":[["a6b67562.efd878","15951260.5966ce"]]},{"id":"a6b67562.efd878","type":"ui_text","z":"18187ffc.6b48f","group":"6b14fbb3.07a0b4","order":10,"width":0,"height":0,"name":"Delay timer","label":"Delay","format":"{{msg.payload}}","layout":"row-spread","x":930,"y":120,"wires":[]},{"id":"1734fad4.8152e5","type":"debug","z":"18187ffc.6b48f","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":870,"y":380,"wires":[]},{"id":"5967d5d5.2aff5c","type":"trigger","z":"18187ffc.6b48f","op1":"true","op2":"false","op1type":"bool","op2type":"bool","duration":"11","extend":true,"units":"s","reset":"","bytopic":"all","name":"Online","x":710,"y":320,"wires":[["4b7dd2f4.9e221c","1734fad4.8152e5"]]},{"id":"a168a118.26ab1","type":"mqtt in","z":"18187ffc.6b48f","name":"Online","topic":"smoky/1/inside/#","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":570,"y":320,"wires":[["5967d5d5.2aff5c"]]},{"id":"4b7dd2f4.9e221c","type":"ui_switch","z":"18187ffc.6b48f","name":"Online","label":"Online","tooltip":"","group":"6b14fbb3.07a0b4","order":11,"width":0,"height":0,"passthru":true,"decouple":"false","topic":" ","style":"","onvalue":"true","onvalueType":"bool","onicon":"settings_input_antenna","oncolor":"green","offvalue":"false","offvalueType":"bool","officon":"settings_input_antenna","offcolor":"red","x":850,"y":320,"wires":[[]]},{"id":"15951260.5966ce","type":"ui_level","z":"18187ffc.6b48f","group":"6b14fbb3.07a0b4","order":12,"width":0,"height":0,"name":"Delay","label":"Delay","colorHi":"#e60000","colorWarn":"#ff9900","colorNormal":"#00b33c","colorOff":"#595959","min":0,"max":"30","segWarn":"10","segHigh":"20","unit":"","layout":"sh","channelA":"","channelB":"","decimals":0,"animations":"soft","shape":2,"colorschema":"valuedriven","textoptions":"default","colorText":"#eeeeee","fontLabel":"","fontValue":"","fontSmall":"","colorFromTheme":true,"textAnimations":false,"hideValue":true,"tickmode":"off","peakmode":false,"peaktime":3000,"x":930,"y":180,"wires":[]},{"id":"a4a48341.56e01","type":"mqtt in","z":"18187ffc.6b48f","name":"Boot count","topic":"smoky/1/bootcount","qos":"1","datatype":"auto","broker":"7b47ed6d.c31284","x":100,"y":840,"wires":[["626d6b52.9d70c4"]]},{"id":"626d6b52.9d70c4","type":"ui_chart","z":"18187ffc.6b48f","name":"Boot count","group":"78852bd7.a57494","order":3,"width":0,"height":0,"label":"Boot count","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"No data","dot":false,"ymin":"350","ymax":"500","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"outputs":1,"x":550,"y":840,"wires":[[]]}]
+[
+    {
+        "id": "18187ffc.6b48f",
+        "type": "tab",
+        "label": "Smoky",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7b47ed6d.c31284",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Smoky",
+        "broker": "10.0.0.15",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "56c641d8.f1904",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Smoky",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "30d7abf.2215b54",
+        "type": "ui_group",
+        "z": "",
+        "name": "Inside",
+        "tab": "56c641d8.f1904",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4611e53.768ad1c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e7632049.38b88",
+        "type": "ui_group",
+        "z": "",
+        "name": "Outside",
+        "tab": "56c641d8.f1904",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6b14fbb3.07a0b4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Settings",
+        "tab": "56c641d8.f1904",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "78852bd7.a57494",
+        "type": "ui_group",
+        "z": "",
+        "name": "Historikk",
+        "tab": "56c641d8.f1904",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "cb6ee6bd.b164e8",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Test",
+        "topic": "smoky/2/#",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "25cfb2d5.38dade"
+            ]
+        ]
+    },
+    {
+        "id": "25cfb2d5.38dade",
+        "type": "debug",
+        "z": "18187ffc.6b48f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "82b80da7.dec89",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Inside temp",
+        "topic": "smoky/2/inside/temperature",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "f06e04ce.790578",
+                "4915e30b.a3162c",
+                "79446cfd.d12db4"
+            ]
+        ]
+    },
+    {
+        "id": "f06e04ce.790578",
+        "type": "ui_gauge",
+        "z": "18187ffc.6b48f",
+        "name": "Inside temoerature",
+        "group": "30d7abf.2215b54",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatur",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "70",
+        "colors": [
+            "#050db5",
+            "#06a101",
+            "#ca3838"
+        ],
+        "seg1": "0",
+        "seg2": "15",
+        "x": 330,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "910f763.bfc5388",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Inside humidity",
+        "topic": "smoky/2/inside/humidity",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "3d6dba65.a70426",
+                "a9b7913f.217f9"
+            ]
+        ]
+    },
+    {
+        "id": "3d6dba65.a70426",
+        "type": "ui_gauge",
+        "z": "18187ffc.6b48f",
+        "name": "Inside Humidity",
+        "group": "30d7abf.2215b54",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luftfuktighet",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#b50200",
+            "#06a101",
+            "#0d14ca"
+        ],
+        "seg1": "70",
+        "seg2": "95",
+        "x": 340,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c645a377.9807b",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Inside smoke",
+        "topic": "smoky/2/inside/smoke",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "5416051a.a36a4c",
+                "8ef2569a.851458"
+            ]
+        ]
+    },
+    {
+        "id": "5416051a.a36a4c",
+        "type": "ui_gauge",
+        "z": "18187ffc.6b48f",
+        "name": "Inside smoke",
+        "group": "30d7abf.2215b54",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Røyk",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "600",
+        "colors": [
+            "#cdb704",
+            "#06a101",
+            "#b50200"
+        ],
+        "seg1": "60",
+        "seg2": "250",
+        "x": 350,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "eb185141.0d27c",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Outside temp",
+        "topic": "smoky/2/outside/temperature",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "f76ff216.6bd08"
+            ]
+        ]
+    },
+    {
+        "id": "f76ff216.6bd08",
+        "type": "ui_gauge",
+        "z": "18187ffc.6b48f",
+        "name": "Outside temperature",
+        "group": "e7632049.38b88",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatur",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "30",
+        "colors": [
+            "#050db5",
+            "#06a101",
+            "#ca3838"
+        ],
+        "seg1": "0",
+        "seg2": "20",
+        "x": 340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9d208703.113418",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Outside humidity",
+        "topic": "smoky/2/outside/humidity",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "a21f1f90.fe9fe"
+            ]
+        ]
+    },
+    {
+        "id": "a21f1f90.fe9fe",
+        "type": "ui_gauge",
+        "z": "18187ffc.6b48f",
+        "name": "Outside humidity",
+        "group": "e7632049.38b88",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luftfuktighet",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#cdb704",
+            "#06a101",
+            "#0d14ca"
+        ],
+        "seg1": "30",
+        "seg2": "80",
+        "x": 330,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9d142961.766fe8",
+        "type": "ui_text",
+        "z": "18187ffc.6b48f",
+        "group": "6b14fbb3.07a0b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Temp setting",
+        "label": "Temp setting",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 370,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c09843e7.c7aea",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Temp setting",
+        "topic": "smoky/2/settings/temp",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "9d142961.766fe8"
+            ]
+        ]
+    },
+    {
+        "id": "97882377.e20a4",
+        "type": "ui_button",
+        "z": "18187ffc.6b48f",
+        "name": "Read settings",
+        "group": "6b14fbb3.07a0b4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Read",
+        "tooltip": "Send message to read settings",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "...",
+        "payloadType": "str",
+        "topic": "smoky/2/in/read",
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "73c2194c.896b68",
+                "9d142961.766fe8",
+                "65abff36.f4021",
+                "33d316c8.76a06a",
+                "412080df.27aa7"
+            ]
+        ]
+    },
+    {
+        "id": "73c2194c.896b68",
+        "type": "mqtt out",
+        "z": "18187ffc.6b48f",
+        "name": "Send",
+        "topic": "",
+        "qos": "2",
+        "retain": "true",
+        "broker": "7b47ed6d.c31284",
+        "x": 810,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "65abff36.f4021",
+        "type": "ui_text",
+        "z": "18187ffc.6b48f",
+        "group": "6b14fbb3.07a0b4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Temp Kp",
+        "label": "Kp setting",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 360,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "9e7bd418.fcaa78",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Kp setting",
+        "topic": "smoky/2/settings/kp",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 100,
+        "y": 560,
+        "wires": [
+            [
+                "65abff36.f4021"
+            ]
+        ]
+    },
+    {
+        "id": "33d316c8.76a06a",
+        "type": "ui_text",
+        "z": "18187ffc.6b48f",
+        "group": "6b14fbb3.07a0b4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Ki setting",
+        "label": "Ki setting",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 360,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c23fb4a9.113388",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Ki setting",
+        "topic": "smoky/2/settings/ki",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 100,
+        "y": 600,
+        "wires": [
+            [
+                "33d316c8.76a06a"
+            ]
+        ]
+    },
+    {
+        "id": "412080df.27aa7",
+        "type": "ui_text",
+        "z": "18187ffc.6b48f",
+        "group": "6b14fbb3.07a0b4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Kd setting",
+        "label": "Kd setting",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 370,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "630fa59c.a55c2c",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Kd setting",
+        "topic": "smoky/2/settings/kd",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 100,
+        "y": 640,
+        "wires": [
+            [
+                "412080df.27aa7"
+            ]
+        ]
+    },
+    {
+        "id": "ed5ffd5c.f3ace",
+        "type": "ui_text_input",
+        "z": "18187ffc.6b48f",
+        "name": "Set temp",
+        "label": "Set temp",
+        "tooltip": "Enter new temperature",
+        "group": "6b14fbb3.07a0b4",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "smoky/2/in/temp",
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "73c2194c.896b68"
+            ]
+        ]
+    },
+    {
+        "id": "f1d28d5d.9e6dd",
+        "type": "ui_text_input",
+        "z": "18187ffc.6b48f",
+        "name": "Set kp",
+        "label": "Set Kp",
+        "tooltip": "Enter PID kp value",
+        "group": "6b14fbb3.07a0b4",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "smoky/2/in/kp",
+        "x": 570,
+        "y": 640,
+        "wires": [
+            [
+                "73c2194c.896b68"
+            ]
+        ]
+    },
+    {
+        "id": "e2d3c662.09d608",
+        "type": "ui_text_input",
+        "z": "18187ffc.6b48f",
+        "name": "Set ki",
+        "label": "Set Ki",
+        "tooltip": "Enter PID ki value",
+        "group": "6b14fbb3.07a0b4",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "smoky/2/in/ki",
+        "x": 570,
+        "y": 680,
+        "wires": [
+            [
+                "73c2194c.896b68"
+            ]
+        ]
+    },
+    {
+        "id": "3f80fdc5.291c32",
+        "type": "ui_text_input",
+        "z": "18187ffc.6b48f",
+        "name": "Set kd",
+        "label": "Set Kd",
+        "tooltip": "Enter PID kd value",
+        "group": "6b14fbb3.07a0b4",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "smoky/2/in/kd",
+        "x": 570,
+        "y": 720,
+        "wires": [
+            [
+                "73c2194c.896b68"
+            ]
+        ]
+    },
+    {
+        "id": "7aeedf33.81741",
+        "type": "ui_gauge",
+        "z": "18187ffc.6b48f",
+        "name": "Heater",
+        "group": "e7632049.38b88",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Heater",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#06a101",
+            "#cdb704",
+            "#b50200"
+        ],
+        "seg1": "25",
+        "seg2": "75",
+        "x": 330,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b164f294.0d0d5",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Heater",
+        "topic": "smoky/2/inside/heateroutput",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "7aeedf33.81741"
+            ]
+        ]
+    },
+    {
+        "id": "8ef2569a.851458",
+        "type": "ui_chart",
+        "z": "18187ffc.6b48f",
+        "name": "Inside smoke graph",
+        "group": "78852bd7.a57494",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Røyk",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "400",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4915e30b.a3162c",
+        "type": "ui_chart",
+        "z": "18187ffc.6b48f",
+        "name": "Inside temp graph",
+        "group": "78852bd7.a57494",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatur",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": false,
+        "ymin": "-5",
+        "ymax": "10",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9b7913f.217f9",
+        "type": "ui_chart",
+        "z": "18187ffc.6b48f",
+        "name": "Inside humidity graph",
+        "group": "78852bd7.a57494",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Luftfuktighet",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "190c7d50.4766e3",
+        "type": "inject",
+        "z": "18187ffc.6b48f",
+        "name": "Delay counter",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 580,
+        "y": 60,
+        "wires": [
+            [
+                "79446cfd.d12db4"
+            ]
+        ]
+    },
+    {
+        "id": "79446cfd.d12db4",
+        "type": "function",
+        "z": "18187ffc.6b48f",
+        "name": "Timer",
+        "func": "var timer = 0;\nif (msg.topic != 'smoky/2/inside/temperature') {\n    timer = context.get('smokyTimer') || 0;\n    timer += 1;\n}\ncontext.set('smokyTimer', timer);\nmsg.payload = timer;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "a6b67562.efd878",
+                "15951260.5966ce"
+            ]
+        ]
+    },
+    {
+        "id": "a6b67562.efd878",
+        "type": "ui_text",
+        "z": "18187ffc.6b48f",
+        "group": "6b14fbb3.07a0b4",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "Delay timer",
+        "label": "Delay",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 930,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1734fad4.8152e5",
+        "type": "debug",
+        "z": "18187ffc.6b48f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 870,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5967d5d5.2aff5c",
+        "type": "trigger",
+        "z": "18187ffc.6b48f",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "11",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "Online",
+        "x": 710,
+        "y": 320,
+        "wires": [
+            [
+                "4b7dd2f4.9e221c",
+                "1734fad4.8152e5"
+            ]
+        ]
+    },
+    {
+        "id": "a168a118.26ab1",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Online",
+        "topic": "smoky/2/inside/#",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "5967d5d5.2aff5c"
+            ]
+        ]
+    },
+    {
+        "id": "4b7dd2f4.9e221c",
+        "type": "ui_switch",
+        "z": "18187ffc.6b48f",
+        "name": "Online",
+        "label": "Online",
+        "tooltip": "",
+        "group": "6b14fbb3.07a0b4",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": " ",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "settings_input_antenna",
+        "oncolor": "green",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "settings_input_antenna",
+        "offcolor": "red",
+        "x": 850,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15951260.5966ce",
+        "type": "ui_level",
+        "z": "18187ffc.6b48f",
+        "group": "6b14fbb3.07a0b4",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "Delay",
+        "label": "Delay",
+        "colorHi": "#e60000",
+        "colorWarn": "#ff9900",
+        "colorNormal": "#00b33c",
+        "colorOff": "#595959",
+        "min": 0,
+        "max": "30",
+        "segWarn": "10",
+        "segHigh": "20",
+        "unit": "",
+        "layout": "sh",
+        "channelA": "",
+        "channelB": "",
+        "decimals": 0,
+        "animations": "soft",
+        "shape": 2,
+        "colorschema": "valuedriven",
+        "textoptions": "default",
+        "colorText": "#eeeeee",
+        "fontLabel": "",
+        "fontValue": "",
+        "fontSmall": "",
+        "colorFromTheme": true,
+        "textAnimations": false,
+        "hideValue": true,
+        "tickmode": "off",
+        "peakmode": false,
+        "peaktime": 3000,
+        "x": 930,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a4a48341.56e01",
+        "type": "mqtt in",
+        "z": "18187ffc.6b48f",
+        "name": "Boot count",
+        "topic": "smoky/2/bootcount",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "7b47ed6d.c31284",
+        "x": 100,
+        "y": 840,
+        "wires": [
+            [
+                "626d6b52.9d70c4"
+            ]
+        ]
+    },
+    {
+        "id": "626d6b52.9d70c4",
+        "type": "ui_chart",
+        "z": "18187ffc.6b48f",
+        "name": "Boot count",
+        "group": "78852bd7.a57494",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Boot count",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": false,
+        "ymin": "350",
+        "ymax": "500",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    }
+]
