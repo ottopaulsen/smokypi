@@ -1,4 +1,5 @@
 .gitconfig
+.vscode
 .bash_history
 .bash_logout
 .bashrc
